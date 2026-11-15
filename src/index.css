@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  }
+
+  .font-mono-num {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marqueeScroll 24s linear infinite;
+}
+
+@keyframes vortexSpinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes vortexSpinReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-vortex-cw {
+  animation: vortexSpinSlow 18s linear infinite;
+}
+
+.animate-vortex-ccw {
+  animation: vortexSpinReverse 12s linear infinite;
+}
+
+.animate-vortex-fast {
+  animation: vortexSpinSlow 2.4s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-vortex-cw,
+  .animate-vortex-ccw,
+  .animate-vortex-fast {
+    animation: none;
+  }
+}
